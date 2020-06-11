@@ -17,7 +17,7 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
-      fk_companyId: {
+      fk_cateId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         allowNull: false,
