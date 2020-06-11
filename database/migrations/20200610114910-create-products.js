@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('products', {
-      productId: {
+    return queryInterface.createTable('Products', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -17,6 +17,15 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
+      fk_companyId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        allowNull: false,
+        references: {
+          model: 'Categories',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -25,16 +34,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      categoryId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'categories',
-          key: 'categoryId',
-        }
-      }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('products');
+    return queryInterface.dropTable('Products');
   }
 };
