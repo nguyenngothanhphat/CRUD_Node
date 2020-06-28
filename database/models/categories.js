@@ -1,6 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Categories = sequelize.define('Categories', {
+    categoryId: {
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
     title: DataTypes.STRING,
     description: DataTypes.STRING,
     createdAt: DataTypes.DATE,
@@ -8,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Categories.associate = function(models) {
     // associations can be defined here
-    Categories.belongsTo(models.Products, {
-      foreignKey: 'fk_cateId',
-      sourceKey: 'id',
+    Categories.hasMany(models.Products, {
+      foreignKey: 'cateId',
+      as: 'products',
       onDelete: 'CASCADE',
     });
   };

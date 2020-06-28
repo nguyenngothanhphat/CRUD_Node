@@ -1,7 +1,9 @@
 const { Product } = require("../database/index.js");
+const { Category } = require("../database/index.js");
+const productService = require("../services/productService.js");
 
 const getAllProducts = (req, res, next) => {
-  Product.findAll()
+  return Product.findAll()
     .then((products) => {
       res
         .status(200)
@@ -24,9 +26,7 @@ const getProductById = (req, res, next) => {
   })
     .then((product) => {
       if (!product) {
-        const error = new Error("Could not find product.");
-        error.statusCode = 404;
-        throw error;
+        res.status(404).json({ message: "Could not find product." });
       }
       res.status(200).json({ message: "Product fetched.", product: product });
     })
@@ -38,45 +38,36 @@ const getProductById = (req, res, next) => {
     });
 };
 
-const createProduct = (req, res, next) => {
-  const InfoProduct = ({ title, price, content, categoryId } = req.query);
-  const product = new Product({
-    title: InfoProduct.title,
-    price: InfoProduct.price,
-    content: InfoProduct.content,
-    categoryId: InfoProduct.categoryId,
+const createProduct = async (req, res, next) => {
+  const { title, price, content, cateId } = req.body;
+  const result = await productService.createProduct(
+    title,
+    price,
+    content,
+    cateId
+  );
+  return res.status(200).json({
+    message: "Category created successfully!",
+    product: result,
   });
-  product
-    .save()
-    .then((result) => {
-      res.status(200).json({
-        message: "Product created successfully!",
-        product: result,
-      });
-    })
-    .catch((err) => {
-      if (!err.statusCode) {
-        err.statusCode = 500;
-      }
-      next(err);
-    });
 };
 
 const updateProduct = (req, res, next) => {
-  const productId = req.params.id;
-  const InfoProduct = ({ title, price, content } = req.query);
-  Product.findAll({
+  const productId = req.params.productId;
+  Product.findOne({
     where: {
       productId: productId,
     },
   })
     .then((product) => {
       if (!product) {
-        const error = new Error("Could not find product.");
-        error.statusCode = 404;
-        throw error;
+        res.status(404).json({ message: "Could not find product." });
       }
-      product.update(InfoProduct);
+      product.title = req.body.title;
+      product.price = req.body.price;
+      product.content = req.body.content;
+      product.cateId = req.body.cateId;
+      return product.save();
     })
     .then((result) => {
       res.status(200).json({ message: "Product updated!", product: result });
@@ -90,17 +81,15 @@ const updateProduct = (req, res, next) => {
 };
 
 const deleteProduct = (req, res) => {
-  const productId = req.params.id
-
+  const productId = req.params.id;
   Product.destroy({
     where: {
-      productId: productId
-    }
-  })
-  .then(() => {
-    res.status(200).json({ message: 'Delete successfully'});
-  })
-}
+      productId: productId,
+    },
+  }).then(() => {
+    res.status(200).json({ message: "Delete successfully" });
+  });
+};
 
 module.exports = {
   getAllProducts,

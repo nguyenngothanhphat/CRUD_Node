@@ -5,16 +5,30 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon app.js"
+    "serve": "nodemon app.js",
+    "model:make": "npx sequelize-cli model:generate",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:make": "npx sequelize-cli migration:generate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "seed:make": "npx sequelize-cli seed:generate"
   },
   "author": "ThanhPhat",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "email-templates": "^7.0.5",
     "express": "^4.17.1",
+    "hjs": "0.0.6",
+    "hogan.js": "^3.0.2",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.8",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "pug": "^3.0.0",
     "sequelize": "^5.21.9"
   },
   "devDependencies": {

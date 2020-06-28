@@ -2,7 +2,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Products', {
-      id: {
+      productId: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -17,13 +17,13 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
-      fk_cateId: {
+      cateId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         allowNull: false,
         references: {
           model: 'Categories',
-          key: 'id'
+          key: 'categoryId'
         }
       },
       createdAt: {

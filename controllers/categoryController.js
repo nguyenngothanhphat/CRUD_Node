@@ -1,13 +1,16 @@
+const database = require("../database");
 const { Category } = require("../database/index.js");
 
 const createCategory = (req, res, next) => {
-    const InfoCategory = ({ title, description } = req.query);
-    const category = new Category({
-      title: InfoCategory.title,
-      description: InfoCategory.description,
-    });
-    category
-      .save()
+  const InfoCategory = ({ title, description } = req.body);
+  return database.sequelize.transaction((t) => {
+    return Category.create(
+      {
+        title: InfoCategory.title,
+        description: InfoCategory.description,
+      },
+      { transaction: t }
+    )
       .then((result) => {
         res.status(200).json({
           message: "Category created successfully!",
@@ -20,8 +23,10 @@ const createCategory = (req, res, next) => {
         }
         next(err);
       });
-  };
+  });
+};
 
-  module.exports = {
-    createCategory,
-  };
+
+module.exports = {
+  createCategory,
+};

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="padding: 10px 0 30px 0;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="600"
+                    style="border: 1px solid #cccccc; border-collapse: collapse;">
+                    <tr>
+                        <td align="center"
+                            style="padding: 40px 0 30px 0; color: #d61010; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
+                            <img src="https://isteam.wsimg.com/ip/362aefc9-61ca-4106-a694-5178038f51c8/ols/16_original/:/rs=w:600,h:600"
+                                alt="Creating Email Magic" width="300" height="230" style="display: block;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
+                                        <b>Congratulations on joining TP Edu</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 20px 0 10px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        Hi {{ lastName }}, You have successfully registered your account. This is your
+                                        account information. Do not share it with anyone.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <b>Your account information:</b> <br />
+                                        Username: {{ username }} <br />
+                                        Password: {{ password }} <br />
+                                        Email: {{ email }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h2 style="text-align: center;">Here are the best courses</h2>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td width="260" valign="top">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <img src="https://img-a.udemycdn.com/course/480x270/2378224_44c0_2.jpg"
+                                                                    alt="" width="100%" height="140"
+                                                                    style="display: block;" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                                                If you want to know why Long-term Cryptocurrency Investing is most effective for Retirement funding, and which alt coin I think is the best investment opportunity in 2020, then you will find out in this Udemy course! 
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td style="font-size: 0; line-height: 0;" width="20">
+                                                    &nbsp;
+                                                </td>
+                                                <td width="260" valign="top">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <img src="https://img-a.udemycdn.com/course/480x270/1879018_95b6.jpg"
+                                                                    alt="" width="100%" height="140"
+                                                                    style="display: block;" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 25px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                                                We'll be building a complete blog and online store with shopping cart built entirely with Vue, GraphQL and Gridsome, where we can create and share posts, add comments, create products, add products to our cart and purchase them.
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ee4c50" style="padding: 30px 30px 30px 30px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;"
+                                        width="75%">
+                                        &reg; 2020<br />
+                                        {{!-- <a href="#" style="color: #ffffff;">
+                                            <font color="#ffffff">Unsubscribe</font>
+                                        </a> to this newsletter instantly --}}
+                                    </td>
+                                    <td align="right" width="25%">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td
+                                                    style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
+                                                    <a href="http://www.facebook.com/" style="color: #ffffff;">
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tw.gif"
+                                                            alt="Twitter" width="38" height="38" style="display: block;"
+                                                            border="0" />
+                                                    </a>
+                                                </td>
+                                                <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+                                                <td
+                                                    style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
+                                                    <a href="http://www.facebook.com/" style="color: #ffffff;">
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/fb.gif"
+                                                            alt="Facebook" width="38" height="38"
+                                                            style="display: block;" border="0" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
